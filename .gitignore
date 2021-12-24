@@ -1,0 +1,6 @@
+docker-compose-local.yml
+MyVideoAPI/bin/
+MyVideoAPI/obj/
+MyVideoAPI/Migrations/
+MyVideoAPI/.vs/
+

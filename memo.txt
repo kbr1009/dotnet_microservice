@@ -1,0 +1,41 @@
+
+##マイグレーション
+dotnet ef migrations add InitialCreate
+
+dotnet ef database update
+
+
+## リリース
+dotnet publish -c Release -p:UseAppHost=false
+
+
+##Mysql
+dotnet add package MySql.Data.EntityFrameworkCore
+
+#####Mysql参考 https://qiita.com/suganury/items/067ad7c39cab108f6b5b
+
+##docker-compose:mysql これを使え
+https://uzimihsr.github.io/post/2020-11-27-mysql-on-docker/
+
+###コンテナのdbにアクセス
+mysql -h 127.0.0.1 -P 3306 -u root -p
+
+##コンテナのMysqlに入る
+docker exec -it <コンテナid> mysql mysql -u <username> -p
+
+###docker入門
+https://knowledge.sakura.ad.jp/16082/
+#dockerネットワークの理解
+https://knowledge.sakura.ad.jp/23899/
+
+
+#### docker network コマンド
+## network一覧
+docker network ls
+
+## networkの内容紹介
+docker inspect <brige名>
+
+
+
+

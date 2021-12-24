@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  api:
+    container_name: video_api
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports: 
+      - 5000:80
+    links:
+      - mysql
+    networks:
+      - myapi-net
+
+  mysql:
+    image: mysql:5.7.32
+    container_name: <コンテナ名>
+    environment:
+      MYSQL_DATABASE: <db名>
+      MYSQL_USER: <user名>
+      MYSQL_PASSWORD: <password>
+      MYSQL_ROOT_PASSWORD: <root_password>
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    networks:
+      - myapi-net
+
+networks:
+  myapi-net:
+    external: true
